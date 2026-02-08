@@ -1,0 +1,7 @@
+{
+  "name": "AlgoVision Pro",
+  "description": "An immersive code visualizer that overlays algorithm animations on a live camera feed. Supports arrays, trees, graphs, and custom code simulation via Gemini.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

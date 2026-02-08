@@ -1,0 +1,8 @@
+{
+  "name": "HIRELENS AI: Interview & Teaching Platform",
+  "description": "A high-fidelity multimodal platform for corporate interview simulation and real-time algorithm teaching using Gemini Live voice interaction and OBS-style overlays.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

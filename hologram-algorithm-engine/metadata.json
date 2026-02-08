@@ -1,0 +1,7 @@
+{
+  "name": "Hologram Algorithm Engine",
+  "description": "A futuristic, interactive algorithm visualization engine with a hologram aesthetic, featuring timeline controls and 3D floating data structures.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

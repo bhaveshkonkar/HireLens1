@@ -1,0 +1,8 @@
+{
+  "name": "Gemini Code Interviewer",
+  "description": "A world-class AI coding interview platform featuring a real-time voice-interactive interviewer powered by Gemini Live API and an integrated code editor.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
