@@ -2,13 +2,13 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AlgorithmType, AnimationStep } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function simulateCode(code: string, language: string, type: AlgorithmType, input: string): Promise<AnimationStep[]> {
   console.log("simulateCode called with:", { codeLen: code.length, language, type, input });
   
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+	    model: 'gemini-3-flash-preview',
     contents: `Analyze the following ${language} code and simulate its execution for the input "${input}". 
     Return a list of steps for visualization. 
     The algorithm category is: ${type}.

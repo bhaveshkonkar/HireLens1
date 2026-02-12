@@ -11,12 +11,21 @@ async function checkKey() {
   console.log("Testing API Key connection...");
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-pro',
+  	      model: 'gemini-3-flash-preview',
       contents: { role: 'user', parts: [{ text: 'Reply with "OK" if you can hear me.' }] }
     });
     
     console.log("✅ Success! API Key is working.");
-    console.log("Response:", response.response.candidates[0].content.parts[0].text);
+    console.log("Response:", response.text);
+    
+    // Check for rate limit headers
+    if (response.headers) {
+      console.log("\n📊 Rate Limit Information:");
+      console.log("Requests remaining:", response.headers['x-ratelimit-remaining-requests'] || "N/A");
+      console.log("Requests limit:", response.headers['x-ratelimit-limit-requests'] || "N/A");
+      console.log("Tokens remaining:", response.headers['x-ratelimit-remaining-tokens'] || "N/A");
+      console.log("Tokens limit:", response.headers['x-ratelimit-limit-tokens'] || "N/A");
+    }
   } catch (error) {
     console.log("❌ Error detected.");
     console.log("Message:", error.message);

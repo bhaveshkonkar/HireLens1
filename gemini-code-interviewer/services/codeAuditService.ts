@@ -118,7 +118,7 @@ EVALUATION CRITERIA:
 Be thorough but fair. Rate each criterion from 0-100 where 100 is perfect.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+    	        model: 'gemini-3-flash-preview',
         contents: analysisPrompt,
       });
 

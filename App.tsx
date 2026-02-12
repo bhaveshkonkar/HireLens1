@@ -1862,7 +1862,7 @@ const App: React.FC = () => {
 
     try {
       const response = await withRetry(() => ai.models.generateContent({
-        model: 'gemini-2.0-flash',
+        model: 'gemini-3-flash-preview',
         contents: prompt,
         config: {
           responseMimeType: 'application/json',

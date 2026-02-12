@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AlgorithmMetadata, AlgorithmType, DataStructureType } from "./types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function analyzeAlgorithm(code: string, inputData: string): Promise<AlgorithmMetadata> {
   // Parse input data - handle formats like "arr: [1, 2, 3], target: 5"
@@ -139,7 +139,7 @@ export async function analyzeAlgorithm(code: string, inputData: string): Promise
       console.log(`API call attempt ${attempt}/${maxRetries}...`);
       
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+    	        model: 'gemini-3-flash-preview',
         contents: prompt,
         config: {
           responseMimeType: "application/json",

@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AlgorithmType, AnimationStep } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Retry utility with exponential backoff
 async function withRetry<T>(fn: () => Promise<T>, maxRetries = 3, baseDelay = 2000): Promise<T> {
@@ -25,7 +25,7 @@ async function withRetry<T>(fn: () => Promise<T>, maxRetries = 3, baseDelay = 20
 
 export async function simulateCode(code: string, language: string, type: AlgorithmType, input: string): Promise<AnimationStep[]> {
   const response = await withRetry(() => ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+	    model: 'gemini-3-flash-preview',
     contents: `Analyze the following ${language} code and simulate its execution for the input "${input}". 
     Return a list of steps for visualization. 
     The algorithm category is: ${type}.

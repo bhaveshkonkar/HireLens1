@@ -40,7 +40,7 @@ export interface CodeFeedback {
 }
 
 export async function generateComprehensiveCodeFeedback(code: string, question?: string): Promise<CodeFeedback> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   const questionContext = question ? `\n\nCONTEXT: The candidate was asked: "${question}"\nAnalyze the code SPECIFICALLY in the context of solving this problem.` : '';
 
@@ -78,7 +78,7 @@ For CORRECT code:
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+  	      model: 'gemini-3-flash-preview',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
